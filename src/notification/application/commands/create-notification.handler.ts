@@ -8,9 +8,9 @@ export class CreateNotificationHandler
   implements ICommandHandler<CreateNotificationCommand> {
   constructor(private readonly eventBus: EventBus) {}
 
-  async execute(command: CreateNotificationCommand): Promise<string> {
+  async execute(command: CreateNotificationCommand): Promise<Notification> {
     const notification = new Notification(command.message);
     this.eventBus.publish(new NotificationCreatedEvent(notification));
-    return command.message;
+    return notification;
   }
 }

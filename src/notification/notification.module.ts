@@ -5,7 +5,7 @@ import { CreateNotificationHandler } from './application/commands/create-notific
 import { PushNotificationHandler } from './application/commands/push-notification.handler';
 import { NotificationsSagas } from './application/sagas/notifications.saga';
 import { NotificationGateway } from './infrastructure/ui/gateways/notification.gateway';
-import { WebsocketNotificationPusher } from './infrastructure/notification-pusher/websocket-notification-pusher';
+import { WebSocketNotificationPusher } from './infrastructure/notification-pusher/web-socket-notification-pusher';
 
 @Module({
   imports: [CqrsModule],
@@ -17,7 +17,7 @@ import { WebsocketNotificationPusher } from './infrastructure/notification-pushe
     NotificationGateway,
     {
       provide: 'NotificationPusherInterface',
-      useClass: WebsocketNotificationPusher,
+      useClass: WebSocketNotificationPusher,
     },
   ],
 })

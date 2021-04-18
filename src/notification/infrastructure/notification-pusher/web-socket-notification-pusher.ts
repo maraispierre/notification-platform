@@ -4,7 +4,7 @@ import { Injectable } from '@nestjs/common';
 import { Notification } from '../../domain/entities/notification';
 
 @Injectable()
-export class WebsocketNotificationPusher
+export class WebSocketNotificationPusher
   implements NotificationPusherInterface {
   constructor(private readonly notificationGateway: NotificationGateway) {}
 
