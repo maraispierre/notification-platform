@@ -2,10 +2,10 @@ import { ModuleRef } from '@nestjs/core';
 import { CommandBus, EventBus } from '@nestjs/cqrs';
 import { PushNotificationHandler } from '../../../notification/application/commands/push-notification.handler';
 import { PushNotificationCommand } from '../../../notification/application/commands/push-notification.command';
-import { Notification } from '../../../notification/domain/entities/notification';
-import { NotificationPusherInterface } from '../../../notification/domain/interfaces/notification-pusher.interface';
-import { WebSocketNotificationPusher } from '../../../notification/infrastructure/notification-pusher/web-socket-notification-pusher';
-import { NotificationGateway } from '../../../notification/infrastructure/ui/gateways/notification.gateway';
+import { Notification } from '../../../notification/domain/notification';
+import { NotificationPusher } from '../../../notification/domain/notification-pusher';
+import { WebSocketNotificationPusher } from '../../../notification/infrastructure/domain/web-socket-notification-pusher';
+import { NotificationGateway } from '../../../notification/infrastructure/ui/websocket/notification.gateway';
 
 describe('PushNotificationHander', () => {
   const MESSAGE = 'test';
@@ -16,7 +16,7 @@ describe('PushNotificationHander', () => {
 
   let pushNotificationHandler: PushNotificationHandler;
   let eventBus: EventBus;
-  let notificationPusher: NotificationPusherInterface;
+  let notificationPusher: NotificationPusher;
 
   beforeEach(async () => {
     eventBus = new EventBus(commandBus, moduleRef);

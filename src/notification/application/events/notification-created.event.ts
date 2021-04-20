@@ -1,4 +1,4 @@
-import { Notification } from '../../domain/entities/notification';
+import { Notification } from '../../domain/notification';
 
 export class NotificationCreatedEvent {
   public notification: Notification;

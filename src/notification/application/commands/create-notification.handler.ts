@@ -1,7 +1,7 @@
 import { CommandHandler, EventBus, ICommandHandler } from '@nestjs/cqrs';
 import { CreateNotificationCommand } from './create-notification.command';
 import { NotificationCreatedEvent } from '../events/notification-created.event';
-import { Notification } from '../../domain/entities/notification';
+import { Notification } from '../../domain/notification';
 
 @CommandHandler(CreateNotificationCommand)
 export class CreateNotificationHandler

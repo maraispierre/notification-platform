@@ -2,7 +2,7 @@ import { ModuleRef } from '@nestjs/core';
 import { CommandBus, EventBus } from '@nestjs/cqrs';
 import { CreateNotificationHandler } from '../../../notification/application/commands/create-notification.handler';
 import { CreateNotificationCommand } from '../../../notification/application/commands/create-notification.command';
-import { Notification } from '../../../notification/domain/entities/notification';
+import { Notification } from '../../../notification/domain/notification';
 
 describe('CreateNotificationHander', () => {
   const MESSAGE = 'test';
