@@ -8,12 +8,13 @@ import { CreateNotificationCommand } from '../../../application/commands/create-
 export class NotificationCreatorController {
   constructor(private readonly commandBus: CommandBus) {}
 
-  @Post()
+  @Post('/push')
   public async push(
-    @Body() notification: NotificationDto,
+    @Body() notification: CreateNotificationRequest,
   ): Promise<Notification> {
     return await this.commandBus.execute(
       new CreateNotificationCommand(notification.message),
     );
   }
 }
+

@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator';
 
-export class NotificationDto {
+export class CreateNotificationRequest {
   @IsNotEmpty()
   readonly message: string;
 }

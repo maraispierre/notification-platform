@@ -1,5 +1,5 @@
 import { Notification } from '../entities/notification';
 
-export interface NotificationPusherInterface {
+export interface NotificationPusher {
   push(notification: Notification): void;
 }
