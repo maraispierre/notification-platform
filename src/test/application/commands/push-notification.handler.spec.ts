@@ -8,7 +8,7 @@ import { WebSocketNotificationPusher } from '../../../notification/infrastructur
 import { NotificationGateway } from '../../../notification/infrastructure/ui/websocket/notification.gateway';
 
 describe('PushNotificationHander', () => {
-  const MESSAGE = 'test';
+  const PROPERTIES = { test: 'test'};
 
   let commandBus: CommandBus;
   let moduleRef: ModuleRef;
@@ -29,7 +29,7 @@ describe('PushNotificationHander', () => {
 
   describe('execute', () => {
     it('should return Notification', async () => {
-      const notification = new Notification(MESSAGE);
+      const notification = new Notification(PROPERTIES);
 
       jest.spyOn(eventBus, 'publish').mockImplementation(async () => null);
       jest

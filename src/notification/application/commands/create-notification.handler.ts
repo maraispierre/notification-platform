@@ -9,7 +9,7 @@ export class CreateNotificationHandler
   constructor(private readonly eventBus: EventBus) {}
 
   async execute(command: CreateNotificationCommand): Promise<Notification> {
-    const notification = new Notification(command.message);
+    const notification = new Notification(command.properties);
     this.eventBus.publish(new NotificationCreatedEvent(notification));
     return notification;
   }

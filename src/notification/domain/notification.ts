@@ -1,7 +1,7 @@
 export class Notification {
-  public readonly message: string;
+  public readonly properties: object;
 
-  constructor(message: string) {
-    this.message = message;
+  constructor(properties: object) {
+    this.properties = properties;
   }
 }

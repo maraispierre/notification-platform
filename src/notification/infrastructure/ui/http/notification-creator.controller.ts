@@ -13,7 +13,7 @@ export class NotificationCreatorController {
     @Body() notification: CreateNotificationRequest,
   ): Promise<Notification> {
     return await this.commandBus.execute(
-      new CreateNotificationCommand(notification.message),
+      new CreateNotificationCommand(notification),
     );
   }
 }

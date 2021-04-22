@@ -5,7 +5,7 @@ import { CreateNotificationCommand } from '../../../notification/application/com
 import { Notification } from '../../../notification/domain/notification';
 
 describe('CreateNotificationHander', () => {
-  const MESSAGE = 'test';
+  const PROPERTIES = { test: 'test'};
 
   let commandBus: CommandBus;
   let moduleRef: ModuleRef;
@@ -20,11 +20,11 @@ describe('CreateNotificationHander', () => {
 
   describe('execute', () => {
     it('should return Notification', async () => {
-      const notification = new Notification(MESSAGE);
+      const notification = new Notification(PROPERTIES);
 
       jest.spyOn(eventBus, 'publish').mockImplementation(async () => null);
 
-      const command = new CreateNotificationCommand(MESSAGE);
+      const command = new CreateNotificationCommand(PROPERTIES);
       expect(await createNotificationHandler.execute(command)).toEqual(
         notification,
       );
